@@ -174,7 +174,7 @@ const Block_one_row_jewellery = () => {
           )}
           <div className="block_full_size_image__descriptionWrapper">
             {/* <span className="block_full_size_image__questionButon">?</span> */}
-            <Link
+            <div
               to={linkURL}
               className="block_full_size_image__link"
               onMouseOver={() => {
@@ -198,7 +198,7 @@ const Block_one_row_jewellery = () => {
                   {blockFullSizeImages[0].products[0].name}
                 </span>
               </span>
-            </Link>
+            </div>
           </div>
         </Link>
       </Div__block_full_size_image>

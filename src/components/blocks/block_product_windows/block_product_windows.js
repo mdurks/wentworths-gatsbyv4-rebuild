@@ -149,6 +149,7 @@ const Block_product_windows = props => {
           <Div_productWrapper>
             {listOfProducts.map((item, index) => (
               <A_productItem
+                key={`key_blockProductWindow_${item.id}`}
                 className="productWindowItem"
                 to={`/${item.categoryType[0]}/${item.productType}/${item.slug}/`}
                 // onMouseOver={() => {

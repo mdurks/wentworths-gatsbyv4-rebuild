@@ -128,8 +128,9 @@ const DetailsPage = ({
     // Sticky descriptive text
     //
     let el = document.querySelector(".detailed_description_text")
-    let elParent = document.querySelector(".detailed_description_text")
-      .parentNode
+    let elParent = document.querySelector(
+      ".detailed_description_text"
+    ).parentNode
 
     if (window.innerWidth >= 1024 && el && elParent) {
       let stick_detailed_description_text = () => {
@@ -255,10 +256,8 @@ const DetailsPage = ({
   const threeDFileURL = product?.threeDModelFile?.url
 
   const [modal_open, setModal_open] = useState("none")
-  const [
-    modal_img_from_product_array,
-    setModal_img_from_product_array,
-  ] = useState(0)
+  const [modal_img_from_product_array, setModal_img_from_product_array] =
+    useState(0)
   //
   //
   //
@@ -669,7 +668,7 @@ const DetailsPage = ({
 
     const hero_details = document.querySelector(".hero_details")
     hero_details.slideNumber = `slide${slideToGoTo}`
-    hero_details.setAttribute("data-slideNumber", `slide${slideToGoTo}`)
+    hero_details.setAttribute("data-slidenumber", `slide${slideToGoTo}`)
     if (slideToGoTo > 0) hero_details.classList.add("closed_hero_details")
     else hero_details.classList.remove("closed_hero_details")
   }
@@ -766,6 +765,7 @@ const DetailsPage = ({
             ? product?.imageMobile?.map(imageMobile => {
                 return (
                   <GraphImg
+                    key={`key_mobilePrimaryFlikityImg_${imageMobile.id}`}
                     image={imageMobile}
                     transforms={["quality=value:80"]}
                     maxWidth={500}
@@ -777,6 +777,7 @@ const DetailsPage = ({
             : product?.image?.slice(1)?.map(image => {
                 return (
                   <GraphImg
+                    key={`key_desktopPrimaryFlikityImg_${image.id}`}
                     image={image}
                     transforms={["quality=value:80"]}
                     maxWidth={3000}
@@ -813,6 +814,7 @@ const DetailsPage = ({
               {product?.image?.slice(1)?.map((image, index) => {
                 return (
                   <button
+                    key={`key_flikityThumbnail_${image.id}`}
                     type="button"
                     onClick={() => {
                       heroCarouselGotoSlide(index)
@@ -845,7 +847,7 @@ const DetailsPage = ({
             </HeroCarouselThumbnails>
             <Styled_CMScontent
               className="hero_details"
-              data-slideNumber="slide0"
+              data-slidenumber="slide0"
               onMouseOver={setHeroDetailsHoveredClass}
               onMouseLeave={removeHeroDetailsHoveredClass}
             >
@@ -879,7 +881,7 @@ const DetailsPage = ({
                         {/* <p>Available carat sizes:</p> */}
                         <p>Available carat sizes once added to basket:</p>
                         {productCaratSizesArray?.map(carat => {
-                          return <span>{carat}</span>
+                          return <span key={`key_carat_${carat}`}>{carat}</span>
                         })}
                         {/* <p>
                           You can pick a different carat size once added to the
@@ -921,7 +923,7 @@ const DetailsPage = ({
               </div>
 
               <button
-                btn_selected
+                btn_selected="true"
                 className="addToCartBtn snipcart-add-item"
                 // Snipcart:
                 data-item-id={product.id}
@@ -1001,23 +1003,22 @@ const DetailsPage = ({
             <div>
               {/* loop out all the product images, skipping the first one since it's the hero img */}
               {product?.image?.slice(1)?.map((el, index) => (
-                <>
-                  <div
-                    onClick={() => {
-                      open_modal_animation(index + 1)
-                    }}
-                  >
-                    <GraphImg
-                      image={el}
-                      transforms={["quality=value:80"]}
-                      maxWidth={1920}
-                      className={`productScrollingImg productScrollingImg_${
-                        index + 1
-                      }`}
-                      baseURI={globalSiteSettings.graphcmsImageBaseURI}
-                    />
-                  </div>
-                </>
+                <div
+                  key={`key_detailDescriptionBlockImage_${el.id}`}
+                  onClick={() => {
+                    open_modal_animation(index + 1)
+                  }}
+                >
+                  <GraphImg
+                    image={el}
+                    transforms={["quality=value:80"]}
+                    maxWidth={1920}
+                    className={`productScrollingImg productScrollingImg_${
+                      index + 1
+                    }`}
+                    baseURI={globalSiteSettings.graphcmsImageBaseURI}
+                  />
+                </div>
               ))}
             </div>
             <div>
@@ -1195,27 +1196,26 @@ const DetailsPage = ({
         <div className="modalPagination">
           <div className="modalPagination__container">
             {product?.image?.map((el, index) => (
-              <>
-                <button
-                  className={`modalPagination__pageBtn ${
-                    modal_img_from_product_array === index
-                      ? "modalPagination__selected"
-                      : ""
-                  }`}
-                  onClick={e => {
-                    e.stopPropagation()
-                    modal_pagination_goto_page(index)
-                  }}
-                  aria-label={`View image ${index + 1}`}
-                >
-                  <GraphImg
-                    image={el}
-                    transforms={["quality=value:50"]}
-                    maxWidth={50}
-                    baseURI={globalSiteSettings.graphcmsImageBaseURI}
-                  />
-                </button>
-              </>
+              <button
+                key={`key_modalImage_${el.id}`}
+                className={`modalPagination__pageBtn ${
+                  modal_img_from_product_array === index
+                    ? "modalPagination__selected"
+                    : ""
+                }`}
+                onClick={e => {
+                  e.stopPropagation()
+                  modal_pagination_goto_page(index)
+                }}
+                aria-label={`View image ${index + 1}`}
+              >
+                <GraphImg
+                  image={el}
+                  transforms={["quality=value:50"]}
+                  maxWidth={50}
+                  baseURI={globalSiteSettings.graphcmsImageBaseURI}
+                />
+              </button>
             ))}
           </div>
         </div>

@@ -55,7 +55,7 @@ const Block_hero_images = () => {
   let gsap_section_hero = null
   let gsap_section_hero_img = null
 
-  const tl = gsap.timeline()
+  const tl_blockHeroImage = gsap.timeline()
   const tl_handwriting = gsap.timeline()
 
   const [windowWidth, setWindowWidth] = useState("one")
@@ -72,7 +72,7 @@ const Block_hero_images = () => {
     // Fade/Scale in background image
 
     if (document.querySelector(".Section__hero__backgroundImg"))
-      tl.from(".Section__hero__backgroundImg", {
+      tl_blockHeroImage.from(".Section__hero__backgroundImg", {
         duration: 5,
         scale: 1.5,
         opacity: 0,
@@ -107,7 +107,7 @@ const Block_hero_images = () => {
 
     // Slide R-L, fade in Texts
 
-    tl.to(
+    tl_blockHeroImage.to(
       ".Section__hero__heading",
       {
         duration: 1.25,
@@ -118,7 +118,7 @@ const Block_hero_images = () => {
       },
       "-=4.95"
     )
-    tl.to(
+    tl_blockHeroImage.to(
       ".Section__hero__headingSVG",
       {
         duration: 1.25,
@@ -135,7 +135,7 @@ const Block_hero_images = () => {
     gsap.set(".Section__hero__headingText", {
       clipPath: "inset(0% 100% -50% 0%)",
     })
-    tl.to(
+    tl_blockHeroImage.to(
       ".Section__hero__headingText",
       {
         duration: 1.25,
@@ -143,7 +143,7 @@ const Block_hero_images = () => {
       },
       "-=4"
     )
-    tl.set(".Section__hero__headingText", {
+    tl_blockHeroImage.set(".Section__hero__headingText", {
       clipPath: "none",
     })
 
@@ -236,7 +236,13 @@ const Block_hero_images = () => {
         toggleActions: "play none none none",
         // markers: true,
         scrub: isMobile ? 0.5 : 1.35,
-        onScrubComplete: () => ScrollTrigger.refresh(true),
+        // disabled following line after the big update, this kept refreshing the animation
+        // and the animations of the product windows and gradient row components
+        // the command basically resets all scroll triggers on the page which explains the
+        // restart of the animations
+        // I put this line of code in to try and help recognise the start/end positions on
+        // mobile as they weren't ending in the right place if scrolling up/down too fast
+        // onScrubComplete: () => ScrollTrigger.refresh(true),
       },
       y: `+=${section__hero__heading_destination}`,
       left: window.innerWidth > 768 && "-=10%",
@@ -327,15 +333,15 @@ const Block_hero_images = () => {
     )
 
     // cleanup on unmount
-    return () => {
-      ScrollTrigger.getById("Section__hero__heading").kill()
-      ScrollTrigger.getById("Section__hero__headingSVG").kill()
+    // return () => {
+    //   ScrollTrigger.getById("Section__hero__heading").kill()
+    //   ScrollTrigger.getById("Section__hero__headingSVG").kill()
 
-      gsap.set(".Section__hero__heading", { clearProps: true })
-      gsap.set(".Section__hero__headingSVG", { clearProps: true })
-      // tl.pause(0).kill(true)
-      // tl.kill()
-    }
+    //   gsap.set(".Section__hero__heading", { clearProps: true })
+    //   gsap.set(".Section__hero__headingSVG", { clearProps: true })
+    //   // tl_blockHeroImage.pause(0).kill(true)
+    //   // tl_blockHeroImage.kill()
+    // }
   }, [windowWidth])
 
   const supports_video = () => {
@@ -357,7 +363,7 @@ const Block_hero_images = () => {
       <Section__hero
         ref={e => (gsap_section_hero = e)}
         // onClick={() => {
-        //   tl.progress(0).restart()
+        //   tl_blockHeroImage.progress(0).restart()
         //   tl_handwriting.progress(0).restart()
         // }}
       >
@@ -368,7 +374,7 @@ const Block_hero_images = () => {
             {windowWidth < 768 && supports_h264_baseline_video !== "probably" && (
               <video
                 loop
-                autoplay
+                autoPlay
                 muted
                 className="Section__hero__backgroundImg"
               >
@@ -382,7 +388,7 @@ const Block_hero_images = () => {
             {windowWidth >= 768 && supports_h264_baseline_video !== "probably" && (
               <video
                 loop
-                autoplay
+                autoPlay
                 muted
                 className="Section__hero__backgroundImg"
               >
@@ -422,8 +428,8 @@ const Block_hero_images = () => {
         </HeroImg_Wrapper>
         <HeroText_Wrapper>
           <Styled_SiteContainer>
-            <p class="Section__hero__heading">
-              <span class="Section__hero__headingText">
+            <p className="Section__hero__heading">
+              <span className="Section__hero__headingText">
                 <span>W</span>
                 <span>e</span>
                 <span> </span>
@@ -443,8 +449,8 @@ const Block_hero_images = () => {
                 <span>y</span>
               </span>
             </p>
-            <p class="Section__hero__headingSVG">
-              <span class="Section__hero__heading--handwritten">
+            <p className="Section__hero__headingSVG">
+              <span className="Section__hero__heading--handwritten">
                 <svg id="signature" viewBox="0 0 812 616">
                   <defs>
                     <clipPath id="outline_m">
@@ -486,42 +492,42 @@ const Block_hero_images = () => {
                   </defs>
 
                   <path
-                    clip-path="url(#outline_m)"
+                    clipPath="url(#outline_m)"
                     fill="none"
                     stroke={svgColour}
                     strokeWidth="35"
                     d="M29.4995 126.5C21.4995 148.333 4.79953 195.1 1.99954 207.5C-1.50046 223 6.49953 228 17.9995 211.5C29.4995 195 46.5 167.5 53.5 156.5C60.5 145.5 73 129 81.5 138C90 147 67.5 190.5 61.5 204C55.5 217.5 69.5 210 75 204C80.5 198 95 182.5 98.5 180.5C102 178.5 106.35 175.069 110 181C114 187.5 115.239 211.009 130 210.5C150.229 209.802 186 176.5 194 164.5"
                   />
                   <path
-                    clip-path="url(#outline_a)"
+                    clipPath="url(#outline_a)"
                     fill="none"
                     stroke={svgColour}
                     strokeWidth="30"
                     d="M225.5 175C226.5 164.5 213.5 146.5 195 161C174.378 177.163 167.5 195.5 174.5 199C181.5 202.5 198.5 185.5 205 178.5C211.5 171.5 225 158 229 155C233 152 243.5 141.5 239 161C234.5 180.5 234.5 178 234 182.5C233.5 187 232.5 199 245.5 202.5C271.5 208.5 319 181 344 164.5"
                   />
                   <path
-                    clip-path="url(#outline_k)"
+                    clipPath="url(#outline_k)"
                     fill="none"
                     stroke={svgColour}
                     strokeWidth="30"
                     d="M427.5 1.99899C421.5 2.49899 418.604 -7.72161 399.5 26.999C342 131.5 302 227.499 284.5 317.999C312 383.499 484.5 149.999 413.5 121.499C401.188 109.487 318.009 167.59 313.5 184.499C309.5 199.499 444.5 196.5 468.5 175"
                   />
                   <path
-                    clip-path="url(#outline_e)"
+                    clipPath="url(#outline_e)"
                     fill="none"
                     stroke={svgColour}
                     strokeWidth="30"
                     d="M460.5 178.999C467.5 175.499 480 163 482.5 158C486.308 150.384 478.5 145 469.5 154C460.5 163 451.215 177.499 453.5 193.499C456 210.999 478 230.499 564.5 164.999"
                   />
                   <path
-                    clip-path="url(#outline_r)"
+                    clipPath="url(#outline_r)"
                     fill="none"
                     stroke={svgColour}
                     strokeWidth="30"
                     d="M559.5 136.5C555.9 148.1 542.333 201.333 536 226.5C545.5 196 563.5 160.5 577 151.5C580 149.667 585.571 145.163 594 156C604.5 169.5 649.5 177 686.5 167.5"
                   />
                   <path
-                    clip-path="url(#outline_s)"
+                    clipPath="url(#outline_s)"
                     fill="none"
                     stroke={svgColour}
                     strokeWidth="30"

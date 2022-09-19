@@ -50,7 +50,7 @@ export const Div__block_best_seller = styled.div`
       letter-spacing: -1px;
     }
 
-    > div {
+    > span {
       position: relative;
       top: 0;
       /* opacity: 0; */

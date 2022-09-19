@@ -4,12 +4,12 @@ const Product_filter_checkbox = props => {
   // create a css custom property to store the index
   // count e.g. '1' of the instance of this component.
   // this value is used to stagger the animations of these components
-  const animation_timing = "--animation-order: " + props.index + ";"
+  const animation_timing = "--animation-order: " + props.index
 
   return (
     <label
-      style={animation_timing}
-      for={`filter_chkbx_` + props.filterCategory + `_` + props.filterName}
+      style={{ animation_timing }}
+      htmlFor={`filter_chkbx_` + props.filterCategory + `_` + props.filterName}
     >
       <input
         type="checkbox"

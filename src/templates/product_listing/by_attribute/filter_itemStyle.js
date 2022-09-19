@@ -577,7 +577,10 @@ const ProductListingByAttribute = ({
                   }
                 >
                   {filters_for_gemstone.map((el, index) => (
-                    <li onClick={create_filter_object}>
+                    <li
+                      key={`key_filters_for_gemstone_${el}`}
+                      onClick={create_filter_object}
+                    >
                       <Product_filter_checkbox
                         filterCategory={"gemstone"}
                         filterName={el}
@@ -608,7 +611,10 @@ const ProductListingByAttribute = ({
                   }
                 >
                   {filters_for_stoneCut.map((el, index) => (
-                    <li onClick={create_filter_object}>
+                    <li
+                      key={`key_filters_for_stoneCut_${el}`}
+                      onClick={create_filter_object}
+                    >
                       <Product_filter_checkbox
                         filterCategory={"stoneCut"}
                         filterName={el}
@@ -639,7 +645,10 @@ const ProductListingByAttribute = ({
                   }
                 >
                   {filters_for_metal.map((el, index) => (
-                    <li onClick={create_filter_object}>
+                    <li
+                      key={`key_filters_for_metal_${el}`}
+                      onClick={create_filter_object}
+                    >
                       <Product_filter_checkbox
                         filterCategory={"metal"}
                         filterName={el}
@@ -670,7 +679,10 @@ const ProductListingByAttribute = ({
                   }
                 >
                   {filters_for_stoneColour.map((el, index) => (
-                    <li onClick={create_filter_object}>
+                    <li
+                      key={`key_filters_for_stoneColour_${el}`}
+                      onClick={create_filter_object}
+                    >
                       <Product_filter_checkbox
                         filterCategory={"stoneColour"}
                         filterName={el}
@@ -709,14 +721,12 @@ const ProductListingByAttribute = ({
           </Div__filter_info>
           <Div__productRow className="productRow">
             {productList.map(({ id, ...product }, index) => (
-              <>
-                <Product_in_list
-                  key={id}
-                  category={`${pageContext.category}/${pageContext.product_type}`} // this forms part of the URL
-                  product={product}
-                  mapCount={index}
-                />
-              </>
+              <Product_in_list
+                key={`key_Product_in_list_${id}`}
+                category={`${pageContext.category}/${pageContext.product_type}`} // this forms part of the URL
+                product={product}
+                mapCount={index}
+              />
             ))}
           </Div__productRow>
         </Styled_SiteContainer>

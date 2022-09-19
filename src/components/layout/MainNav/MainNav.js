@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useAppContext } from "../../../store/AppContext"
 import { graphql, useStaticQuery } from "gatsby"
 import Link from "gatsby-plugin-transition-link"
-// import Snipcart from "../../snipcart"
+import Snipcart from "../../snipcart"
 import { gsap } from "gsap/all"
 
 import Svg_basket from "../../../images/svg/basket"
@@ -1099,7 +1099,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/jewellery/rings/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1180,7 +1180,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/jewellery/earrings/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1278,7 +1278,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/jewellery/necklaces/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1355,7 +1355,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/jewellery/bracelets/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1461,7 +1461,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/services/bespoke-jewellery-design/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1473,7 +1473,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/hand-crafted-jewellery/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1486,7 +1486,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/jewellery-remodelling/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1504,7 +1504,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/jewellery-repairs/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1517,7 +1517,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/watch-repairs/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1530,7 +1530,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/ring-resizing/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1548,7 +1548,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/jewellery-valuations/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1561,7 +1561,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/pearl-stringing/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1574,7 +1574,7 @@ const MainNav = () => {
                   <Li__secondaryLink>
                     <A__secondaryCategoryLink
                       as={Link}
-                      noIcon
+                      noicon="true"
                       to="/services/buy-silver-and-gold/"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
@@ -1618,7 +1618,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/about/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1631,7 +1631,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/ethical-and-sustainable-practices/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1644,7 +1644,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/fair-trade-gold/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1662,7 +1662,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/faq/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1675,7 +1675,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/free-shipping/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1688,7 +1688,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/returns-policy/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1701,7 +1701,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/about/terms-and-conditions/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),
@@ -1719,7 +1719,7 @@ const MainNav = () => {
                     <A__secondaryCategoryLink
                       as={Link}
                       to="/blog/"
-                      noIcon
+                      noicon="true"
                       onClick={closeSecondaryLinkBackground}
                       exit={{
                         trigger: () => click_mobile_burger_btn(),

@@ -117,48 +117,48 @@ const Footer = () => {
             >
               Services
             </h3>
-            <ul class="accordionContentWrapper">
-              <li class="animate_footer_items_2">
+            <ul className="accordionContentWrapper">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/bespoke-jewellery-design/">
                   Bespoke Jewellery Design
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/hand-crafted-jewellery/">
                   Hand Crafted Jewellery
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/jewellery-remodelling/">
                   Jewellery Remodelling
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/jewellery-repairs/">
                   Jewellery Repairs
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/buy-silver-and-gold/">
                   We Buy Silver and Gold
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/ring-resizing/">
                   Ring Resizing
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/jewellery-valuations/">
                   Jewellery Valuations
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/pearl-stringing/">
                   Pearl Stringing
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_2">
+              <li className="animate_footer_items_2">
                 <FooterLink as={Link} to="/services/watch-repairs/">
                   Watch Repairs
                 </FooterLink>
@@ -208,37 +208,37 @@ const Footer = () => {
                   About Wentworths
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink as={Link} to="/blog/">
                   News & Articles
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink as={Link} to="/about/fair-trade-gold/">
                   Fair Trade Gold
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink as={Link} to="/about/returns-policy/">
                   Returns Policy
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink as={Link} to="/about/terms-and-conditions/">
                   Terms & Conditions
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink as={Link} to="/about/faq/">
                   FAQ
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink as={Link} to="/about/free-shipping/">
                   Free Shipping
                 </FooterLink>
               </li>
-              <li class="animate_footer_items_3">
+              <li className="animate_footer_items_3">
                 <FooterLink
                   as={Link}
                   to="/about/ethical-and-sustainable-practices/"
@@ -278,15 +278,14 @@ const Footer = () => {
                   method="post"
                   id="mc-embedded-subscribe-form"
                   name="mc-embedded-subscribe-form"
-                  class="validate"
+                  className="validate"
                   target="_blank"
-                  novalidate
+                  noValidate
                 >
                   <input
                     type="email"
-                    value=""
                     name="EMAIL"
-                    class="email animate_footer_items_4"
+                    className="email animate_footer_items_4"
                     id="mce-EMAIL"
                     placeholder="email address"
                     required
@@ -299,19 +298,18 @@ const Footer = () => {
                     <input
                       type="text"
                       name="b_d5846f86c03e5c2c5a3e185f8_a98250718c"
-                      tabindex="-1"
-                      value=""
+                      tabIndex="-1"
                     />
                   </div>
-                  <div class="optionalParent animate_footer_items_4">
+                  <div className="optionalParent animate_footer_items_4">
                     <input
                       type="submit"
                       value="Subscribe"
                       name="subscribe"
                       id="mc-embedded-subscribe"
-                      class="button"
+                      className="button"
                     />
-                    <p class="brandingLogo">
+                    <p className="brandingLogo">
                       <a
                         href="http://eepurl.com/hSezpL"
                         title="Mailchimp - email marketing made easy and fun"

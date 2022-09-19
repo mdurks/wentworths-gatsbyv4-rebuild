@@ -23,7 +23,11 @@ const Block_blog_latest_articles = ({ blogs }) => {
         <Styled_BlogLatestArticlesWrapper>
           <h2>News & Articles</h2>
           {blogs.map(blog => (
-            <Link to={`/blog/${blog.slug}/`} className="blogLatestArticleItem">
+            <Link
+              key={`key_blockBlogLatestArticles${blog.id}`}
+              to={`/blog/${blog.slug}/`}
+              className="blogLatestArticleItem"
+            >
               <div className="blogLatestArticleImg">
                 <GraphImg
                   image={blog.articleImage}
@@ -36,7 +40,7 @@ const Block_blog_latest_articles = ({ blogs }) => {
             </Link>
           ))}
           <Styled_btn
-            btn_selected
+            btn_selected="true"
             as={Link}
             to="/blog/"
             className="blogLatestArticleReadMore"

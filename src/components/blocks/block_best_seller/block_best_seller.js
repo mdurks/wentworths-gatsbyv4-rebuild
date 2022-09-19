@@ -123,9 +123,9 @@ const Block_best_seller = props => {
       <Div__block_best_seller ref={e => (Block_best_seller = e)}>
         <div className="headingGroup">
           <p className="entryHeading">
-            <div ref={e => (gsap__entryHeading_bestSeller = e)}>
+            <span ref={e => (gsap__entryHeading_bestSeller = e)}>
               Best selling
-            </div>
+            </span>
           </p>
           <h2 ref={e => (gsap__entryHeading_category_title = e)}>
             {props.categoryTitle}
@@ -146,25 +146,23 @@ const Block_best_seller = props => {
             static // default false
           >
             {props.products.map(el => (
-              <>
-                <div>
-                  <Link
-                    to={`/engagement/${el.productType}/${el.slug}/`}
-                    className="bestSellerItem bestSellerItem1"
-                  >
-                    <GraphImg
-                      image={el.image[0]}
-                      transforms={["quality=value:80"]}
-                      maxWidth={300}
-                      baseURI={globalSiteSettings.graphcmsImageBaseURI}
-                    />
-                    <div className="productStage"></div>
-                    <p className="productDesc">
-                      {el.name} <span>£{number_with_commas(el.price)}</span>
-                    </p>
-                  </Link>
-                </div>
-              </>
+              <div key={`key_blockBestSeller_${el.id}`}>
+                <Link
+                  to={`/engagement/${el.productType}/${el.slug}/`}
+                  className="bestSellerItem bestSellerItem1"
+                >
+                  <GraphImg
+                    image={el.image[0]}
+                    transforms={["quality=value:80"]}
+                    maxWidth={300}
+                    baseURI={globalSiteSettings.graphcmsImageBaseURI}
+                  />
+                  <div className="productStage"></div>
+                  <p className="productDesc">
+                    {el.name} <span>£{number_with_commas(el.price)}</span>
+                  </p>
+                </Link>
+              </div>
             ))}
           </Flickity>
         </Div__flickity>

@@ -63,7 +63,7 @@ export const Div__block_full_size_image = styled.div`
       right: 25px;
       overflow: hidden;
       opacity: 0;
-      transition: opacity ease .4s;
+      transition: opacity ease 00.4s;
       bottom: 50px;
       right: 50px;
     }
@@ -76,7 +76,7 @@ export const Div__block_full_size_image = styled.div`
       width: 44px;
       height: 44px;
       padding: 10px;
-      font-size:  25px;
+      font-size: 5px;
       font-weight: bold;
       color: #b3924c;
       background: white;
@@ -92,28 +92,28 @@ export const Div__block_full_size_image = styled.div`
       }
     }
 
-    a {
+    .block_full_size_image__link {
       display: none;
       width: 44px;
       height: 44px;
       background: hsl(0deg 0% 100% / 80%);
       border-radius: 100px;
       overflow: hidden;
-      transition: all ease .4s;
+      transition: all ease 00.4s;
 
       ${css_breakpoints.min_tablet} {
         display: block;
       }
 
       :before {
-        content: '?';
+        content: "?";
         position: absolute;
         top: 0;
         right: 0;
         width: 44px;
         height: 44px;
         padding: 10px;
-        font-size:  25px;
+        font-size:25px;
         font-weight: bold;
         color: #b3924c;
         background: white;
@@ -121,7 +121,7 @@ export const Div__block_full_size_image = styled.div`
         line-height: 23px;
         text-align: center;
         opacity: 1;
-        transition: all ease .3s;
+        transition: all ease 00.3s;
       }
 
       > span {
@@ -131,7 +131,7 @@ export const Div__block_full_size_image = styled.div`
         transform: translateY(-50%);
         width: 500px;
         opacity: 0;
-        transition: all ease .4s;
+        transition: all ease 00.4s;
         text-decoration: underline;
       }
 

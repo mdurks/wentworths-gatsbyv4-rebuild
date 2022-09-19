@@ -339,7 +339,10 @@ const Block_bespoke_design_advert = () => {
         <Styled_SiteContainer>
           <div className="bespoke_design_gsap_scrolling_image_container">
             {sketchImagesArray.map((el, index) => (
-              <div className="offscreen_right">
+              <div
+                key={`key_blockBespokeDesignAdver_${el.id}`}
+                className="offscreen_right"
+              >
                 <GraphImg
                   className="gsap_scrolling_img"
                   image={el}
@@ -358,7 +361,7 @@ const Block_bespoke_design_advert = () => {
               maxWidth={600}
               baseURI={globalSiteSettings.graphcmsImageBaseURI}
             />
-            <div class="finalImageOne_backface"></div>
+            <div className="finalImageOne_backface"></div>
           </div>
           <div className="finalImageTwo">
             <GraphImg

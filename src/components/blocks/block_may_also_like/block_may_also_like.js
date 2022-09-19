@@ -45,7 +45,7 @@ const Block_may_also_like = props => {
           static // default false
         >
           {props.products.map(el => (
-            <div>
+            <div key={`key_blockMayAlsoLikeProduct_${el.id}`}>
               <a
                 href={`/${props.categoryType}/${props.productType}/${el.slug}/`}
                 className="youMayAlsoLike__itemLink"

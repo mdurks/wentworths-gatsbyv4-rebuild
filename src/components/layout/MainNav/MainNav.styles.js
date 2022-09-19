@@ -91,7 +91,7 @@ export const UL__primaryLinks = styled.ul`
   }
 `
 
-export const Div__primaryLinkHighlighter = styled.div`
+export const Div__primaryLinkHighlighter = styled.li`
   display: none;
 
   ${css_breakpoints.min_desktop} {
@@ -108,7 +108,7 @@ export const Div__primaryLinkHighlighter = styled.div`
   }
 `
 
-export const Div__secondaryLinkBackground = styled.div`
+export const Div__secondaryLinkBackground = styled.li`
   display: none;
 
   ${css_breakpoints.min_desktop} {
@@ -539,7 +539,7 @@ export const Li__secondaryLink = styled.li`
 export const A__secondaryCategoryLink = styled.a`
   display: flex;
   align-items: center;
-  padding: ${props => (props.noIcon ? "8px 0" : "8px 0 8px 35px")};
+  padding: ${props => (props.noicon ? "8px 0" : "8px 0 8px 35px")};
 
   font-size: 16px;
   color: #76591b;
@@ -552,7 +552,7 @@ export const A__secondaryCategoryLink = styled.a`
     position: relative;
     height: 100%;
     margin: 0 5px 0 0;
-    padding: ${props => (props.noIcon ? "4px 0" : "4px 0 4px 35px")};
+    padding: ${props => (props.noicon ? "4px 0" : "4px 0 4px 35px")};
     font-size: 14px;
     text-transform: capitalize;
     color: black;
@@ -571,12 +571,12 @@ export const A__secondaryCategoryLink = styled.a`
 
     &:hover {
       margin-right: 0;
-      padding-left: ${props => (props.noIcon ? "10px" : "40px")};
+      padding-left: ${props => (props.noicon ? "10px" : "40px")};
       color: #936400;
 
       &:before {
         ${props =>
-          props.noIcon
+          props.noicon
             ? css`
                 width: calc(100% - 7px);
               `
@@ -584,7 +584,7 @@ export const A__secondaryCategoryLink = styled.a`
                 width: calc(100% - 17px);
               `};
         background: #c1a260;
-        left: ${props => (props.noIcon ? "10px" : "37px")};
+        left: ${props => (props.noicon ? "10px" : "37px")};
       }
 
       svg {

@@ -105,15 +105,15 @@ const Block_newsletter_signup = () => {
                   method="post"
                   id="mc-embedded-subscribe-form-block"
                   name="mc-embedded-subscribe-form-block"
-                  class="validate"
+                  className="validate"
                   target="_blank"
-                  novalidate
+                  noValidate
                 >
                   <input
                     type="email"
-                    value=""
+                    // value=""
                     name="EMAIL"
-                    class="email"
+                    className="email"
                     id="mce-EMAIL"
                     placeholder="Enter your email address here..."
                     required
@@ -126,19 +126,19 @@ const Block_newsletter_signup = () => {
                     <input
                       type="text"
                       name="b_d5846f86c03e5c2c5a3e185f8_a98250718c"
-                      tabindex="-1"
-                      value=""
+                      tabIndex="-1"
+                      // value=""
                     />
                   </div>
-                  <div class="optionalParent">
+                  <div className="optionalParent">
                     <input
                       type="submit"
                       value="Subscribe"
                       name="subscribe"
                       id="mc-embedded-subscribe"
-                      class="button"
+                      className="button"
                     />
-                    {/* <p class="brandingLogo">
+                    {/* <p className="brandingLogo">
                       <a
                         href="http://eepurl.com/hSezpL"
                         title="Mailchimp - email marketing made easy and fun"

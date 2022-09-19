@@ -119,6 +119,7 @@ const IndexPage = () => {
 
       {blockGradientRowLinks.map(el => (
         <Block_gradient_row_link
+          key={`key_blockGradientRowLink_${el.image.id}`}
           pre_title={el.preTitle}
           title={el.title}
           tint_colour={el.tintColour}
