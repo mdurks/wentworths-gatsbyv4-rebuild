@@ -70,7 +70,8 @@ module.exports = {
         destination: "/static",
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
+    // `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
