@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const replaceAll = (string, findValue, replaceValue) => {
+function replaceAll(string, findValue, replaceValue) {
   return string.split(findValue).join(replaceValue)
 }
 

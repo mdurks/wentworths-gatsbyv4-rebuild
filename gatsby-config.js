@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Wentworths`,
-    description: `Wentworths online website.`,
-    author: `mdurks@gmail.com`,
-    url: `https://wentworths-gatsby.netlify.app`,
+    title: "Wentworths",
+    description: "Wentworths online website",
+    author: "mdurks@gmail.com",
+    url: "https://wentworths-gatsby.netlify.app",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
