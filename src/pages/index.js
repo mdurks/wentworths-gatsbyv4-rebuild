@@ -1,176 +1,154 @@
-import * as React from "react"
+import React from "react"
+import { useEffect } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+import { gsap, ScrollTrigger } from "gsap/all"
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+// import Layout from "../components/layout"
+// import Snipcart from "../components/snipcart"
+// import Image_text_box from "../components/image_text_box"
+// import Block_one_row_jewellery from "../components/blocks/block_one_row_jewellery/block_one_row_jewellery"
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+import SEO from "../components/layout/seo"
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+import Block_hero_images from "../components/blocks/block_hero_images/block_hero_images"
+import Block_product_windows from "../components/blocks/block_product_windows/block_product_windows"
+import Block_single_image_text from "../components/blocks/block_single_image_text/block_single_image_text"
+import Block_gradient_row_link from "../components/blocks/block_gradient_row_link/block_gradient_row_link"
+import Block_best_seller from "../components/blocks/block_best_seller/block_best_seller"
+import Block_full_size_image from "../components/blocks/block_full_size_image/block_full_size_image"
+import Block_bespoke_design_advert from "../components/blocks/block_bespoke_design_advert/block_bespoke_design_advert"
+import Block_every_order_includes from "../components/blocks/block_every_order_includes/block_every_order_includes"
+import Block_blog_latest_articles from "../components/blocks/block_blog_latest_articles/block_blog_latest_articles"
+import Block_newsletter_signup from "../components/blocks/block_newsletter_signup/block_newsletter_signup"
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
+gsap.registerPlugin(ScrollTrigger)
+gsap.core.globals("ScrollTrigger", ScrollTrigger)
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
+const pageQuery = graphql`
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+    gcms {
+      blockGradientRowLinks {
+        preTitle
+        title
+        tintColour
+        imageAlignment
+        hyperlink
+        image {
+          id
+          url
+          handle
+          height
+          width
+        }
+      }
+      products(
+        orderBy: updatedAt_DESC
+        where: {
+          categoryType_contains_some: engagement
+          AND: { productType: rings }
+        }
+      ) {
+        id
+        name
+        slug
+        productType
+        price
+        image {
+          id
+          url
+          handle
+          width
+          height
+        }
+        bestSeller
+      }
+      welcomes {
+        products(where: { NOT: { productWindowImage: null } }) {
+          name
+          categoryType
+          productType
+          slug
+          id
+          productWindowImage {
+            id
+            url
+            handle
+            width
+            height
+          }
+        }
+      }
+      blogs(orderBy: createdAt_DESC, stage: PUBLISHED, first: 3) {
+        id
+        articleTitle
+        slug
+        createdAt
+        articleImage {
+          id
+          url
+          width
+          height
+          handle
+        }
+      }
+    }
+  }
+`
 
 const IndexPage = () => {
+  const {
+    gcms: { blockGradientRowLinks, products, welcomes, blogs },
+  } = useStaticQuery(pageQuery)
+  // console.log("products", products)
+  // console.log("welcomes", welcomes[0].products)
+  useEffect(() => {
+    // document.body.style.backgroundColor = "#fff"
+    document.body.classList = "mainNav--normal"
+
+    ScrollTrigger.refresh()
+  }, [])
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
+    <>
+      <SEO title="Homepage" />
+
+      <Block_hero_images />
+
+      <Block_product_windows products={welcomes[0].products} />
+
+      {blockGradientRowLinks.map(el => (
+        <Block_gradient_row_link
+          pre_title={el.preTitle}
+          title={el.title}
+          tint_colour={el.tintColour}
+          img_alignment={el.imageAlignment}
+          hyperlink={el.hyperlink}
+          image={el.image}
+        />
+      ))}
+
+      <Block_best_seller
+        categoryTitle="Engagement Rings"
+        category="engagement"
+        products={products}
       />
-    </main>
+
+      <Block_single_image_text />
+
+      <Block_full_size_image />
+
+      {/* <Block_one_row_jewellery /> */}
+
+      <Block_bespoke_design_advert />
+
+      <Block_every_order_includes />
+
+      <Block_newsletter_signup />
+
+      <Block_blog_latest_articles blogs={blogs} />
+    </>
   )
 }
 
 export default IndexPage
-
-export const Head = () => <title>Home Page</title>

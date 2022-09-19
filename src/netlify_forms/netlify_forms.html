@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Forms</title>
+</head>
+
+<body>
+
+    <!-- Helper code for Netlify to connect the forms used throughout the site -->
+
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden action="/thank-you-for-your-message">
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+    </form>
+
+    <form name="enquire" netlify netlify-honeypot="bot-field" hidden action="/thank-you-for-your-message">
+        <input type="hidden" name="enquire" />
+        <input type="hidden" name="Product_URL" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="phone" name="phone" />
+        <textarea name="message"></textarea>
+    </form>
+
+    <form name="book-a-viewing" netlify netlify-honeypot="bot-field" hidden action="/thank-you-for-your-message">
+        <input type="hidden" name="book-a-viewing" />
+        <input type="hidden" name="Product_URL" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="phone" name="phone" />
+        <input type="date" name="date" />
+        <textarea name="message"></textarea>
+    </form>
+
+
+</body>
+
+</html>

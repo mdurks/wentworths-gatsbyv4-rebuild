@@ -1,0 +1,435 @@
+@font-face {
+  font-family: "Amalfi Coast";
+  src: url("../static/Amalfi-Coast.woff2") format("woff2"),
+    url("../static/Amalfi-Coast.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../static/Playfair-Display-Regular.woff2") format("woff2"),
+    url("../static/Playfair-Display-Regular.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../static/Raleway-Regular.woff2") format("woff2"),
+    url("../static/Raleway-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  margin-top: 0;
+  /* outline: 1px solid; */
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Raleway:wght@400;700&display=swap"); */
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-color: #fffad6; */
+  font-size: 16px;
+  line-height: normal;
+  font-family: "Raleway", sans-serif;
+  transition: background-color ease 0.75s;
+  cursor: default;
+}
+@media only screen and (min-width: 767px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Start Site Wrappers ------------------- */
+
+#___gatsby {
+  height: 100%;
+  /* overflow-y: scroll; */
+}
+
+#gatsby-focus-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* background-color: #fff; */
+  transition: background-color ease 0.5s;
+}
+
+@media (min-width: 768px) {
+  #gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+    /* height: auto; */
+    /* height: 100vh; */
+    padding-top: 70px; /* to allow for main nav height */
+  }
+}
+
+#gatsby-focus-wrapper > * {
+  flex: 0 0 auto;
+}
+
+#gatsby-focus-wrapper > :first-child,
+#gatsby-focus-wrapper > :last-child {
+  flex: 0 0 auto;
+}
+
+main {
+  flex: 1 0 auto !important;
+  min-height: 100vh;
+}
+
+/* .tl-wrapper--unmount { */
+/* overflow-y: hidden !important; */
+/* background-color: white; */
+
+/*
+    Just make sure animation time is same that transition duration in <AniLink />
+    as well add some delay (e.g. 0.2s as in example) to avoid weird blinking at the end
+  */
+/* animation: 1s ease normal fadeout; */
+/* } */
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.tl-wrapper--mount {
+  height: 100%;
+  /* background-color: white; */
+  /* overflow-y: hidden !important;
+  overflow-x: hidden; */
+  transition: background-color ease 0.5s;
+  /* animation: 0.1s ease normal fadein; */
+}
+
+.tl-wrapper--unmount {
+  height: 100%;
+  box-shadow: none !important;
+  transition: background-color ease 0.5s;
+}
+
+.tl-edges {
+  height: 100%;
+  /* overflow-y: hidden !important; */
+  overflow: visible !important;
+}
+
+/* End Site Wrappers ------------------- */
+
+.main {
+  min-height: 500px;
+}
+.mainHeader {
+  z-index: 20;
+}
+
+/* Snipcart ------------------- */
+
+@media (hover: hover) {
+  .snipcart-sidecart--opened body {
+    padding-right: 18px;
+  }
+}
+
+#snipcart {
+  position: relative;
+  z-index: 50;
+  font-family: "Raleway", sans-serif !important;
+  font-size: 16px;
+}
+
+.snipcart-cart__secondary-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  /* font-weight: bold; */
+  color: white;
+}
+#snipcart h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  color: #000;
+}
+
+.snipcart-cart__secondary-header {
+  background-color: #a77711 !important;
+  color: white;
+}
+
+.snipcart-cart__secondary-header svg {
+  color: white;
+  width: 50px;
+  height: 50px;
+}
+
+.snipcart-cart-header__close-button .snipcart__icon {
+  width: 40px;
+  height: 40px;
+}
+
+.snipcart-modal__close-title {
+  font-weight: bold !important;
+}
+
+#snipcart .snipcart-form__select {
+  height: auto;
+  padding: 10px 50px 10px 14px;
+  margin: 0 0 10px;
+}
+
+#snipcart legend,
+#snipcart label,
+#snipcart p,
+.snipcart__font--subtitle-small,
+.snipcart__font--tiny {
+  font-size: 16px !important;
+}
+
+.snipcart-item-line__quantity {
+  padding: 10px 0 0;
+}
+
+.snipcart-item-quantity__quantity-price-container {
+  justify-content: flex-start;
+}
+
+.snipcart-item-quantity__quantity-price-container:before {
+  content: 'Price:';
+  position: relative;
+  margin: 0 10px 0 0;
+  font-weight: bold;
+}
+
+.snipcart-item-quantity__quantity,
+.snipcart-item-quantity__label {
+  display: none !important;
+}
+
+:root {
+  --bgColor-buttonPrimary: #a77711;
+  --bgColor-buttonPrimary-hover: #a77711;
+
+  --color-link: #000;
+  --color-link-hover: #a77711;
+  --color-icon: #a77711;
+  --color-badge: #a77711;
+  --color-badge-active: #fff;
+  --borderColor-badge-active: #a77711;
+  --bgColor-badge-active: #a77711;
+
+  --color-input-hover: #a77711;
+  --borderColor-input-hover: #a77711;
+  --borderColor-input-focus: #a77711;
+  --shadow-input-focus: #a77711;
+
+  --color-buttonSecondary: #000;
+  --color-buttonSecondary-hover: #fff;
+  --bgColor-buttonSecondary: #d8c7a3;
+  --bgColor-buttonSecondary-hover: #a77711;
+}
+
+/* End Snipcart ------------------- */
+
+.pageNoScrollY {
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .pageNoScrollY {
+    padding-right: 17px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+h1 {
+  font-size: 35px;
+  line-height: 42px;
+}
+h2 {
+  font-size: 25px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
+}
+@media only screen and (min-width: 767px) {
+  h1 {
+    font-size: 48px;
+    line-height: 54px;
+  }
+  h2 {
+    font-size: 45px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 18px;
+  }
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+p {
+  line-height: 28px;
+}
+@media only screen and (min-width: 767px) {
+  p {
+    line-height: 30px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: 0;
+}
+
+select {
+  cursor: pointer;
+}
+
+/* CMS Rules */
+/* --------------------------------------------- */
+
+.cms__img-width-auto img {
+  width: auto;
+}
+
+.cms__img-width-full img {
+  width: 100%;
+}
+
+.cms__center {
+  text-align: center;
+}
+
+/* End: CMS Rules */
+/* --------------------------------------------- */
+
+/* Mailchimp */
+/* --------------------------------------------- */
+
+.mc-banner {
+  top: auto !important;
+  bottom: 0 !important;
+  background: #9bd7e1 !important;
+}
+
+.bannerContent__description {
+  margin: 6px 0 17px !important;
+  text-align: center !important;
+  font-family: "Times New Roman" !important;
+  font-size: 25px !important;
+  color: black !important;
+}
+
+.bannerContent__closeButton:before,
+.bannerContent__closeButton:after {
+  background-color: black !important;
+}
+
+/* End: Mailchimp */
+/* --------------------------------------------- */
+
+gatsby-portal {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.no_y_scroll {
+  overflow-y: hidden;
+}
+.no_x_scroll {
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 767px) {
+  .mobileFullHeight {
+    height: 100%;
+    height: 100vh;
+    /* 60px = mobile sticky nav */
+    /* height: calc((var(--vh, 1vh) * 100) - 60px); */
+    height: calc(var(--vh) - 60px);
+  }
+}
+
+.heightCheck {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: -1;
+}
