@@ -342,7 +342,7 @@ const Block_hero_images = () => {
     //   // tl_blockHeroImage.pause(0).kill(true)
     //   // tl_blockHeroImage.kill()
     // }
-  }, [windowWidth])
+  }, [windowWidth, isMobile, tl_blockHeroImage, tl_handwriting])
 
   const supports_video = () => {
     return !!document.createElement("video").canPlayType
