@@ -7,14 +7,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: "gatsby-plugin-transition-link",
-    //   // pass following option to tell transition link to maintain the layout from the following file so transition only affect the contents of the new page and not the surrounding layout
-    //   options: {
-    //     layout: require.resolve(`./src/components/layout.js`),
-    //     injectPageProps: false,
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-transition-link",
+      // pass following option to tell transition link to maintain the layout from the following file so transition only affect the contents of the new page and not the surrounding layout
+      options: {
+        layout: require.resolve(`./src/components/layout.js`),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
