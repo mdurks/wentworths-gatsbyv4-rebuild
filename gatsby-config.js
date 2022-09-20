@@ -12,6 +12,7 @@ module.exports = {
       // pass following option to tell transition link to maintain the layout from the following file so transition only affect the contents of the new page and not the surrounding layout
       options: {
         layout: require.resolve(`./src/components/layout.js`),
+        injectPageProps: false,
       },
     },
     {
