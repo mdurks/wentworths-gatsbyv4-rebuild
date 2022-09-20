@@ -19,9 +19,9 @@ export const AppProvider = ({ children }) => {
     if (contactModalOpen) {
       contactModalEl?.classList.add("open")
       if (window.innerWidth >= breakpoints.tablet)
-        document.getElementById("contactForm_name").focus()
+        document.getElementById("contactForm_name")?.focus()
     } else {
-      contactModalEl?.classList.remove("open")
+      contactModalEl?.classList?.remove("open")
     }
   }, [contactModalOpen])
 

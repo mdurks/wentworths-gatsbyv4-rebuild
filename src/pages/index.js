@@ -2,7 +2,7 @@ import React from "react"
 import { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { gsap, ScrollTrigger } from "gsap/all"
+// import { gsap, ScrollTrigger } from "gsap/all"
 
 // import Layout from "../components/layout"
 // import Snipcart from "../components/snipcart"
@@ -22,8 +22,8 @@ import Block_hero_images from "../components/blocks/block_hero_images/block_hero
 // import Block_blog_latest_articles from "../components/blocks/block_blog_latest_articles/block_blog_latest_articles"
 // import Block_newsletter_signup from "../components/blocks/block_newsletter_signup/block_newsletter_signup"
 
-gsap.registerPlugin(ScrollTrigger)
-gsap.core.globals("ScrollTrigger", ScrollTrigger)
+// gsap.registerPlugin(ScrollTrigger)
+// gsap.core.globals("ScrollTrigger", ScrollTrigger)
 
 const pageQuery = graphql`
   {
@@ -102,12 +102,12 @@ const IndexPage = () => {
   } = useStaticQuery(pageQuery)
   // console.log("products", products)
   // console.log("welcomes", welcomes[0].products)
-  useEffect(() => {
-    // document.body.style.backgroundColor = "#fff"
-    document.body.classList = "mainNav--normal"
+  // useEffect(() => {
+  //   // document.body.style.backgroundColor = "#fff"
+  //   document.body.classList = "mainNav--normal"
 
-    ScrollTrigger.refresh()
-  }, [])
+  //   ScrollTrigger.refresh()
+  // }, [])
 
   return (
     <>
