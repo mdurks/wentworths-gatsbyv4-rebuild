@@ -1,6 +1,6 @@
 import React from "react"
 import { useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 // import { gsap, ScrollTrigger } from "gsap/all"
 
@@ -113,6 +113,7 @@ const IndexPage = () => {
     <>
       <SEO title="Homepage" />
       <p>Homepage</p>
+      <Link to="/about/about">About link</Link>
 
       {/* <Block_hero_images /> */}
 

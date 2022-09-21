@@ -6,10 +6,10 @@
  */
 
 import React, { useEffect } from "react"
-// import PropTypes from "prop-types"
-// import { useStaticQuery, graphql } from "gatsby"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
-// import { AppProvider } from "../store/AppContext"
+import { AppProvider } from "../store/AppContext"
 
 // import SEO from "./layout/seo"
 // import Header from "./layout/header"
@@ -52,22 +52,23 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {/* <AppProvider> */}
-      {/* <SEO title="Home" /> */}
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-      {/* <MainNav /> */}
-      <main>{children}</main>
-      {/* <main>{props.children({ ...props })}</main> */}
-      {/* <Footer /> */}
-      {/* <Form_viewing /> */}
-      {/* <div className="heightCheck"></div> */}
-      {/* </AppProvider> */}
+      <AppProvider>
+        <p>Layout file</p>
+        {/* <SEO title="Home" /> */}
+        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+        {/* <MainNav /> */}
+        <main>{children}</main>
+        {/* <main>{props.children({ ...props })}</main> */}
+        {/* <Footer /> */}
+        {/* <Form_viewing /> */}
+        <div className="heightCheck"></div>
+      </AppProvider>
     </>
   )
 }
 
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// }
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default Layout
