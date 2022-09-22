@@ -11,7 +11,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import SEO from "../components/layout/seo"
 
-// import Block_hero_images from "../components/blocks/block_hero_images/block_hero_images"
+import Block_hero_images from "../components/blocks/block_hero_images/block_hero_images"
 // import Block_product_windows from "../components/blocks/block_product_windows/block_product_windows"
 // import Block_single_image_text from "../components/blocks/block_single_image_text/block_single_image_text"
 // import Block_gradient_row_link from "../components/blocks/block_gradient_row_link/block_gradient_row_link"
@@ -114,7 +114,7 @@ const IndexPage = () => {
       <SEO title="Homepage" />
       <p>Homepage</p>
 
-      {/* <Block_hero_images /> */}
+      <Block_hero_images />
 
       {/* <Block_product_windows products={welcomes[0].products} /> */}
 
