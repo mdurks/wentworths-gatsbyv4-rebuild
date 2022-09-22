@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 // import Layout from "../components/layout"
 import { Styled_SiteContainer } from "../../styles/commonStyles"
@@ -28,7 +28,6 @@ const AboutPage = () => {
   return (
     <>
       <Styled_SiteContainer>
-        <Link to="/">Link to homepage</Link>
         <h1 style={{ marginTop: "150px" }}>{abouts[0].heroHeading}</h1>
         <div
           dangerouslySetInnerHTML={{
