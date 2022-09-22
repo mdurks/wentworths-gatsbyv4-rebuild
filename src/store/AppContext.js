@@ -13,17 +13,17 @@ export const AppProvider = ({ children }) => {
   const [productName, setProductName] = useState()
   const [productUrl, setProductUrl] = useState()
 
-  useEffect(() => {
-    let contactModalEl = document.querySelector(".viewingContainer__content")
+  // useEffect(() => {
+  //   let contactModalEl = document.querySelector(".viewingContainer__content")
 
-    if (contactModalOpen) {
-      contactModalEl?.classList.add("open")
-      if (window.innerWidth >= breakpoints.tablet)
-        document.getElementById("contactForm_name").focus()
-    } else {
-      contactModalEl?.classList.remove("open")
-    }
-  }, [contactModalOpen])
+  //   if (contactModalOpen) {
+  //     contactModalEl?.classList.add("open")
+  //     if (window.innerWidth >= breakpoints.tablet)
+  //       document.getElementById("contactForm_name").focus()
+  //   } else {
+  //     contactModalEl?.classList.remove("open")
+  //   }
+  // }, [contactModalOpen])
 
   return (
     <AppContext.Provider
