@@ -4,6 +4,10 @@ import { graphql, useStaticQuery } from "gatsby"
 
 // import { gsap, ScrollTrigger } from "gsap/all"
 
+import MainNav from "../components/layout/MainNav/MainNav"
+import Footer from "../components/layout/footer/Footer"
+import "../styles/style.css"
+
 // import Layout from "../components/layout"
 // import Snipcart from "../components/snipcart"
 // import Image_text_box from "../components/image_text_box"
@@ -13,7 +17,7 @@ import SEO from "../components/layout/seo"
 
 // import Block_hero_images from "../components/blocks/block_hero_images/block_hero_images"
 // import Block_product_windows from "../components/blocks/block_product_windows/block_product_windows"
-// import Block_single_image_text from "../components/blocks/block_single_image_text/block_single_image_text"
+import Block_single_image_text from "../components/blocks/block_single_image_text/block_single_image_text"
 // import Block_gradient_row_link from "../components/blocks/block_gradient_row_link/block_gradient_row_link"
 // import Block_best_seller from "../components/blocks/block_best_seller/block_best_seller"
 // import Block_full_size_image from "../components/blocks/block_full_size_image/block_full_size_image"
@@ -112,6 +116,9 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Homepage" />
+
+      <MainNav />
+
       <p>Homepage</p>
 
       {/* <Block_hero_images /> */}
@@ -124,7 +131,7 @@ const IndexPage = () => {
         products={products}
       /> */}
 
-      {/* <Block_single_image_text /> */}
+      <Block_single_image_text />
 
       {/* <Block_full_size_image /> */}
 
@@ -135,6 +142,8 @@ const IndexPage = () => {
       {/* <Block_newsletter_signup /> */}
 
       {/* <Block_blog_latest_articles blogs={blogs} /> */}
+
+      <Footer />
     </>
   )
 }
